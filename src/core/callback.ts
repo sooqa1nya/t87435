@@ -13,7 +13,7 @@ export const callbackManager = new class CallbackManager {
         }
 
 
-        const command = this._detectCommand(<string>context.queryPayload);
+        const command = this._detectCommand((context.queryPayload as any).cmd);
 
         if (!command) {
             await context.message?.send('Кнопка не найдена');
